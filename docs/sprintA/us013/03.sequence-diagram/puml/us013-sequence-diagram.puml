@@ -1,0 +1,44 @@
+@startuml us013
+
+title US 013: Unpopular Posts
+
+actor Membro
+participant PostRouter
+participant "getUnpopularPostsController:\n GetUnpopularPosts" as GetUnpopularPostsController
+participant GetUnpopularPostsRequestDTO
+participant "caso de uso: GetUnpopularPosts" as GetUnpopularPosts
+participant RepositórioDePosts
+participant Resultado
+
+Membro -> PostRouter: GET ("/api/v1/posts/unpopular")
+activate PostRouter
+
+PostRouter -> GetUnpopularPostsController: execute(req, res)
+activate GetUnpopularPostsController
+
+GetUnpopularPostsController -> GetUnpopularPosts: execute(dto)
+activate GetUnpopularPosts
+
+GetUnpopularPosts -> RepositórioDePosts: (req.offset)
+activate RepositórioDePosts
+
+RepositórioDePosts --> GetUnpopularPosts
+deactivate RepositórioDePosts
+
+GetUnpopularPosts -> Resultado: ok(result)
+activate Resultado
+
+Resultado --> GetUnpopularPosts
+deactivate Resultado
+
+GetUnpopularPosts --> GetUnpopularPostsController: ok(result)
+deactivate GetUnpopularPosts
+
+GetUnpopularPostsController --> PostRouter
+deactivate GetUnpopularPostsController
+
+PostRouter --> Membro
+deactivate PostRouter
+deactivate Membro
+
+@enduml

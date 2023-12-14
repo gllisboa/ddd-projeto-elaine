@@ -1,0 +1,44 @@
+@startuml us015_simplified
+
+title US 15: Popular posts older than five days are in red
+
+actor Member
+participant PostRouter
+participant "getPopularPostsController:\n GetPopularPosts" as GetPopularPostsController
+participant GetPopularPostsRequestDTO
+participant "usecase:GetPopularPosts" as GetPopularPosts
+participant PostRepo
+participant Result
+
+Member -> PostRouter: GET ("/api/v1/posts/popular")
+activate PostRouter
+
+PostRouter -> GetPopularPostsController: execute(req, res)
+activate GetPopularPostsController
+
+GetPopularPostsController -> GetPopularPosts: execute(dto)
+activate GetPopularPosts
+
+GetPopularPosts -> PostRepo: (req.offset)
+activate PostRepo
+
+PostRepo --> GetPopularPosts
+deactivate PostRepo
+
+GetPopularPosts -> Result: ok(result)
+activate Result
+
+Result --> GetPopularPosts
+deactivate Result
+
+GetPopularPosts --> GetPopularPostsController: ok(result)
+deactivate GetPopularPosts
+
+GetPopularPostsController --> PostRouter
+deactivate GetPopularPostsController
+
+PostRouter --> Member
+deactivate PostRouter
+deactivate Member
+
+@enduml

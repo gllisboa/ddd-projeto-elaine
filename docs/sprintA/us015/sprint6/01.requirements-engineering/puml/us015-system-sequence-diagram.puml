@@ -1,0 +1,28 @@
+@startuml us015-SSD
+
+title US015: Display Older Posts in Red - System Sequence Diagram
+
+actor "User" as User
+participant "DDD Forum Website" as DDDForumWebsite
+
+User -> DDDForumWebsite: 1. Navega para visualizar posts
+activate DDDForumWebsite
+    DDDForumWebsite --> User: 2. Exibe página de posts
+deactivate DDDForumWebsite
+
+User -> DDDForumWebsite: 3. Visualiza posts populares
+activate DDDForumWebsite
+    DDDForumWebsite --> User: 4. Exibe posts populares
+deactivate DDDForumWebsite
+
+note over User
+    Detecta posts com mais de cinco dias
+    e solicita exibição em vermelho.
+end note
+
+User -> DDDForumWebsite: 5. Solicita visualização de posts mais antigos em vermelho
+activate DDDForumWebsite
+    DDDForumWebsite --> User: 6. Exibe posts mais antigos em vermelho
+deactivate DDDForumWebsite
+
+@enduml

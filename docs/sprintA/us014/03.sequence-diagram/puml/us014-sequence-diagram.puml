@@ -1,0 +1,58 @@
+@startuml us014SD
+
+title US 14: Check Average Comments
+
+autonumber
+
+actor Member
+participant CommentRouter
+participant "getAverageCommentController:\n GetAverageCommentController" as GetAverageCommentController
+participant GetAverageCommentRequestDTO
+participant "usecase:GetAverageComment" as GetAverageComment
+participant PostRepo
+participant Result
+
+Member -> CommentRouter: GET ("/api/comments/average")
+activate CommentRouter
+
+CommentRouter -> GetAverageCommentController: execute(req, res)
+activate GetAverageCommentController
+
+GetAverageCommentController -> GetAverageCommentController: executeImpl(req, res)
+activate GetAverageCommentController
+
+GetAverageCommentController -> GetAverageCommentRequestDTO
+activate GetAverageCommentRequestDTO
+
+GetAverageCommentController -> GetAverageComment
+activate GetAverageComment
+
+GetAverageComment -> PostRepo
+activate PostRepo
+
+PostRepo --> GetAverageComment
+deactivate PostRepo
+
+GetAverageComment -> PostRepo
+activate PostRepo
+
+PostRepo --> GetAverageComment
+deactivate PostRepo
+
+GetAverageComment -> Result
+activate Result
+
+Result --> GetAverageComment
+deactivate Result
+
+GetAverageComment --> GetAverageCommentController: ok(result)
+deactivate GetAverageComment
+
+GetAverageCommentController --> CommentRouter
+deactivate GetAverageCommentController
+
+CommentRouter --> Member
+deactivate CommentRouter
+deactivate Member
+
+@enduml

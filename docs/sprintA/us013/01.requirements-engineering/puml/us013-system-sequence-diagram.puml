@@ -1,0 +1,21 @@
+@startuml us013-SSD
+
+title US013: Posts Impopulares - Diagrama de Sequência do Sistema
+
+autonumber
+
+actor Member as "Membro"
+participant "Aplicativo do Fórum DDD" as System
+skinparam actor {
+    BackgroundColor transparent
+}
+activate Member
+  Member -> System: seleciona a opção de ordenação
+
+activate System
+  System --> Member: exibe os posts ordenados
+deactivate System
+  
+deactivate Member
+
+@enduml

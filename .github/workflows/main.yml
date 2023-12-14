@@ -1,0 +1,47 @@
+name: integration
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+    - master
+    
+jobs:
+  docker:
+    timeout-minutes: 3
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20.9.0
+
+    - name: Check Node
+      run: node --version
+
+    - name: set environment
+      run: cp .env.template .env
+
+    - name: Start containers
+      run: docker-compose up --detach
+
+    - name: Wait a little
+      run: sleep 10
+
+    - name: Setup dev
+      run: npm run setup:dev
+
+    - name: start backend
+      run: npm run start:dev &
+
+    - name: start frontend
+      run: BROWSER=none npm run start:public &
+
+    - name: Wait a little
+      run: sleep 10
+
+    - name: Smoke test
+      run: ./smoke-test.sh

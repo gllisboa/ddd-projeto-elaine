@@ -1,0 +1,33 @@
+@startuml US 014
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US014 - Check average comments - System Sequence Diagram
+
+autonumber
+
+actor "Member" as Member
+participant "DDD Fórum Website" as System
+
+activate Member
+
+    Member -> System : requests average of comments for a specific day
+    activate System
+
+    System --> Member : acknowledges the request and asks for the day
+    deactivate System
+
+    Member -> System : provides the specific day
+    activate System
+
+    System --> Member : retrieves data and calculates the average
+    deactivate System
+
+    Member -> System : displays the average of comments for the specific day
+    activate System
+
+    System --> Member : shows the result
+    deactivate System
+
+@enduml

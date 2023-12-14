@@ -1,0 +1,57 @@
+2023-12-11 14:05:11,054 INFO o.a.j.u.JMeterUtils: Setting Locale to pt_PT
+2023-12-11 14:05:11,066 ERROR o.a.j.u.JMeterUtils: Could not find resources for 'pt_PT'
+2023-12-11 14:05:11,073 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2023-12-11 14:05:11,091 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: Copyright (c) 1998-2023 The Apache Software Foundation
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: Version 5.6.2
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: java.version=1.8.0_381
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: os.name=Windows 11
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: os.arch=amd64
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: os.version=10.0
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: file.encoding=Cp1252
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: java.awt.headless=null
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: Max memory     =1851260928
+2023-12-11 14:05:11,100 INFO o.a.j.JMeter: Available Processors =4
+2023-12-11 14:05:11,102 INFO o.a.j.JMeter: Default Locale=português (Portugal)
+2023-12-11 14:05:11,102 INFO o.a.j.JMeter: JMeter  Locale=português (Portugal)
+2023-12-11 14:05:11,102 INFO o.a.j.JMeter: JMeterHome=C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2
+2023-12-11 14:05:11,102 INFO o.a.j.JMeter: user.dir  =C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin
+2023-12-11 14:05:11,102 INFO o.a.j.JMeter: PWD       =C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin
+2023-12-11 14:05:11,109 INFO o.a.j.JMeter: IP: 192.168.1.75 Name: LAPTOP-O2ED7O53 FullName: host.docker.internal
+2023-12-11 14:05:11,129 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2023-12-11 14:05:11,382 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2023-12-11 14:05:24,500 INFO o.a.j.s.FileServer: Default base='C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin'
+2023-12-11 14:05:24,500 INFO o.a.j.g.a.Load: Loading file: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Plan DDD fórum posts - sprint6.jmx
+2023-12-11 14:05:24,500 INFO o.a.j.s.FileServer: Set new base='C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin'
+2023-12-11 14:05:24,721 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2023-12-11 14:05:24,768 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2023-12-11 14:05:24,784 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2023-12-11 14:05:24,784 INFO o.a.j.s.SaveService: Loading file: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Plan DDD fórum posts - sprint6.jmx
+2023-12-11 14:05:25,383 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2023-12-11 14:05:25,385 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2023-12-11 14:05:25,385 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2023-12-11 14:05:25,385 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2023-12-11 14:05:25,725 INFO o.a.j.s.FileServer: Set new base='C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin'
+2023-12-11 14:05:25,871 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:25,871 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:25,891 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-12-11 14:05:25,891 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-12-11 14:05:25,891 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-12-11 14:05:25,891 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-12-11 14:05:25,891 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2023-12-11 14:05:25,891 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2023-12-11 14:05:25,923 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:25,923 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:25,923 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:25,923 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:25,942 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:25,942 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:26,101 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:26,101 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:26,101 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:26,101 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:26,101 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:26,101 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
+2023-12-11 14:05:26,111 INFO o.a.j.c.IncludeController: loadIncludedElements -- try to load included module: C:\Desoft2-switch\switch-qa-23-project-switch-qa-23-5-1\jmeter\apache-jmeter-5.6.2\bin\Test Fragment Post.jmx
+2023-12-11 14:05:26,111 INFO o.a.j.s.SaveService: Loading file: Test Fragment Post.jmx
