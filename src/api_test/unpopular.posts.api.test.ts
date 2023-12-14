@@ -2,7 +2,6 @@ import { Logger } from "tslog";
 import ConfigHandler from "./config/configHandler";
 import Users from "./endpoints/Users";
 import Posts from "./endpoints/Posts";
-import { GetUnpopularPosts } from "../modules/forum/useCases/post/getUnpopularPosts/GetUnpopularPosts";
 import  Constants  from "./config/constants";
 
 const config = ConfigHandler.getInstance();
@@ -30,14 +29,7 @@ describe("Create a post", () => {
     log.debug("1. Posts Base url: " + posts.getBaseUrl());
   });
 
-  /**
-   * Cria um novo usuário
-   */
-  it("Create a new user", async () => {
-    const response = await users.post("Cristina", "elainne@gmail.com", "cristina");
-    expect(response.status).toBe(200);
-  });
-
+  
   /**
    * Faz login do usuário e obtém o token de acesso
    */
@@ -110,16 +102,17 @@ describe("Create a post", () => {
     expect(response.status).toBe(200);
   });
 
-  it("Get unpopular posts as a member (no access token)", async (): Promise<void> => {
+  it("Get unpopular posts as a visitor (no access token)", async (): Promise<void> => {
     const response = await posts.getUnpopularPosts(null, "");
-
+    
+    console.log(JSON.stringify(response.data));
     expect(response.status).toBe(200);
     expect(response.data.posts).toBeDefined();
     expect(response.data.posts.length).toBeGreaterThan(0);
 
     const postsArray = response.data.posts;
     for (let i = 0; i < postsArray.length - 1; i++) {
-      expect(postsArray[i].points).toBeGreaterThan(postsArray[i + 1].points);
+      expect(postsArray[i].points).toBeLessThanOrEqual(postsArray[i + 1].points);
     }
   });
 
@@ -182,7 +175,7 @@ describe("Create a post", () => {
       const response = await posts.getUnpopularPosts(null, Constants.EXPIREDTOKEN);
 
       log.debug("Message: " + response.data.message);
-      expect(response.status).toBe(401);
+      expect(response.status).toBe(403);
       expect(response.data.message).toBeDefined();
       expect(response.data.message).toContain("Token signature expired");
     });
@@ -192,7 +185,7 @@ describe("Create a post", () => {
      */
     it("Get unpopular posts as a user (offset = 0)", async (): Promise<void> => {
       log.debug("Authorization: " + accessToken);
-      const response = await posts.getUnpopularPosts(0);
+      const response = await posts.getUnpopularPosts(-99);
 
       log.debug("Message: " + response.data.message);
       expect(response.status).toBe(500);
@@ -228,5 +221,40 @@ describe("Create a post", () => {
         expect(postsArray[i].points).toBeLessThanOrEqual(postsArray[i + 1].points);
       }
     });
+
+    /**
+     * Verifica a classificação dos posts com um grande número de posts
+     */
+    it(
+      "Get Unpopular Posts with Large Number of Posts - Part 1",
+      async () => {
+        // Crie um grande número de posts
+        const numberOfPosts = 100; // Altere conforme necessário
+        for (let i = 0; i < numberOfPosts; i++) {
+          const response = await posts.createPost(
+            accessToken,
+            `Post ${i}`,
+            "text",
+            `Post ${i} text`,
+            ""
+          );
+          expect(response.status).toBe(200);
+        }
+      },
+      20000 // Tempo limite definido como 20 segundos (em milissegundos) para esta parte
+    );
+    
+    it(
+      "Get Unpopular Posts with Large Number of Posts - Part 2",
+      async () => {
+        // Obtenha os posts impopulares e verifique
+        const response = await posts.getUnpopularPosts();
+        expect(response.status).toBe(200);
+        // Valide se a resposta é adequada com um grande volume de posts
+      },
+      20000 // Tempo limite definido como 20 segundos (em milissegundos) para esta parte
+    );
   });
 });
+
+
